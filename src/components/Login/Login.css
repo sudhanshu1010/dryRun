@@ -1,0 +1,84 @@
+.login-form-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form {
+    margin: 0;
+    padding: 0;
+    height: 40vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, .6);
+    position: relative;
+}
+
+.form-input {
+    margin: .5vw;
+    outline: none;
+    height: 5vh;
+    width: 75%;
+    padding-left: 1.2vw;
+    font-size: 1vw;
+    border: 2px solid rgb(175, 175, 175);
+    background: none;
+    border-radius: 3vh;
+}
+
+::-webkit-input-placeholder {
+    color: rgb(175, 175, 175);
+}
+
+.form-input:focus {
+    border: 2px solid #3e64ff;
+    transition: all .2s ease-in-out;
+}
+
+.btn {
+    margin: 2vh 5vw;
+    height: 5vh;
+    width: 6vw;
+    font-size: 1vw;
+    border-radius: 1vh;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    background: linear-gradient(to left, #797E8B 50%, #686B72 50%) right;
+    background-size: 200%;
+    transition: all .5s ease-out;
+}
+
+.btn:hover {
+    background-color: #555555; 
+    background-position: left;
+}
+
+h5 {
+    font-size: 1vw;
+    font-weight: 500;
+    margin: 0;
+    color: rgb(104, 104, 104);
+}
+
+h5 a {
+    text-decoration: none;
+    color: rgb(80, 79, 79);
+}
+
+h5 a:hover {
+    color: #1f4cff;
+    transition: all .2s ease-in;
+}
+
+.font-awesome {
+    color: rgb(175, 175, 175);
+}
