@@ -20,25 +20,26 @@ const Login = ({ childToParent }) => {
         const res = fetch(URLlogin, requestOptions)
             .then((response) => response.json())
             .then(json => {
+                console.log(json.token)
                 setToken(json.token)
             })
 
             .catch((error) => console.log(error))
     }
 
-    return !token ? (
-        <div className="login-form-container">
-            <div className="login-form">
-                {/* <small className="login-warning">{token ? '' : 'Wrong password!'}</small> */}
-                <input className="form-input email" placeholder="Your email?" type="email" autoComplete="on" onChange={e => setEmail(e.target.value)} />
-                <input className="form-input password" placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
-                <button className="btn" onClick={() => handleInput()} disabled={!email || !password}>Login</button>
-                <h5>New to DryRun? <a href="#" onClick={() => childToParent(false)}>Create Account</a></h5>
-            </div>
-        </div>
-    ) : <Profile token={token} />
+    // return !token ? (
+    //     <div className="login-form-container">
+    //         <div className="login-form">
+    //             {/* <small className="login-warning">{token ? '' : 'Wrong password!'}</small> */}
+    //             <input className="form-input email" placeholder="Your email?" type="email" autoComplete="on" onChange={e => setEmail(e.target.value)} />
+    //             <input className="form-input password" placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
+    //             <button className="btn" onClick={() => handleInput()} disabled={!email || !password}>Login</button>
+    //             <h5>New to DryRun? <a href="#" onClick={() => childToParent(false)}>Create Account</a></h5>
+    //         </div>
+    //     </div>
+    // ) : <Profile token={token} />
 
-    // return <Profile/>
+    return <Profile/>
 }
 
 export default Login;
