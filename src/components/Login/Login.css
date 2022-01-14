@@ -82,3 +82,11 @@ h5 a:hover {
 .font-awesome {
     color: rgb(175, 175, 175);
 }
+
+.login-warning {
+    position: absolute;
+    top: 21vh;
+    left: 5vw;
+    color: rgb(250, 104, 104);
+    font-size: 1.8vh;
+}
