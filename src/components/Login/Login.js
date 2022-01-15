@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Profile from '../Profile/Profile'
+import Dashboard from '../Dashboard/Dashboard'
 import './Login.css'
 
 const URLlogin = 'http://127.0.0.1:8000/accounts/login'
@@ -39,7 +40,7 @@ const Login = ({ childToParent }) => {
     //     </div>
     // ) : <Profile token={token} />
 
-    return <Profile/>
+    return <Dashboard/>
 }
 
 export default Login;

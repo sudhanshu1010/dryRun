@@ -10,8 +10,8 @@ const Profile = ({ token }) => {
     const requestOptions = {
         method: 'GET',
         headers: {
-            'Authorization': 'Token 52aee1d3b4e2c2a1041b59a9fdd38140da4b5583'       
-            // 'Authorization': 'Token ' + token
+            // 'Authorization': 'Token 52aee1d3b4e2c2a1041b59a9fdd38140da4b5583'       
+            'Authorization': 'Token ' + token
         }
     }
 
@@ -35,6 +35,7 @@ const Profile = ({ token }) => {
     return (
         <div className="profile-container">
             {/* <h6>Email: {data.email}</h6> */}
+            profile page
         </div>
     )
 }
