@@ -38,7 +38,8 @@ const Login = ({ childToParent }) => {
     //             <h5>New to DryRun? <a href="#" onClick={() => childToParent(false)}>Create Account</a></h5>
     //         </div>
     //     </div>
-    // ) : <Profile token={token} />
+    // ) : 
+    // <Dashboard token={token}/>
 
     return <Dashboard/>
 }
