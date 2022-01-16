@@ -8,8 +8,6 @@
 }
 
 .login-form {
-    margin: 0;
-    padding: 0;
     height: 40vh;
     width: 30vw;
     display: flex;
@@ -22,25 +20,56 @@
     position: relative;
 }
 
-.form-input {
-    margin: .5vw;
-    outline: none;
+.login-form > div {
     height: 5vh;
     width: 75%;
-    padding-left: 1.2vw;
+    margin: 1vw 0 1vw 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.form-input {
+    outline: none;
+    min-height: 100%;
+    width: 100%;
     font-size: 1vw;
     border: 2px solid rgb(175, 175, 175);
     background: none;
-    border-radius: 3vh;
+    border-radius:2vw;
+    padding-left: 1vw; 
+}
+
+.form-input:focus {
+    border: 2px solid #3e64ff;
+    transition: all .2s ease-in-out;
+}
+
+.password-container {
+    display: flex;
+    justify-content:center;
+}
+
+.password-container span {
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    font-size: 1vw;
+    opacity: .5;
+    font-weight: 600;
 }
 
 ::-webkit-input-placeholder {
     color: rgb(175, 175, 175);
 }
 
-.form-input:focus {
-    border: 2px solid #3e64ff;
-    transition: all .2s ease-in-out;
+.login-form small {
+    position: absolute;
+    left: .5vw;
+    color: red;
+    font-size: 1vw;
+    top: 5.5vh;
 }
 
 .btn {
@@ -79,14 +108,9 @@ h5 a:hover {
     transition: all .2s ease-in;
 }
 
-.font-awesome {
-    color: rgb(175, 175, 175);
-}
-
-.login-warning {
+.toggle-password {
     position: absolute;
-    top: 21vh;
-    left: 5vw;
-    color: rgb(250, 104, 104);
-    font-size: 1.8vh;
+    top: 0;
+    right: 0;
+    cursor: pointer;
 }

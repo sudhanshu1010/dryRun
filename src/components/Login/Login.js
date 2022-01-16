@@ -10,8 +10,36 @@ const Login = ({ childToParent }) => {
     const [password, setPassword] = useState('')
     const [token, setToken] = useState('')
 
+    const [showPassword, setShowpassword] = useState(false)
+
+    const [emailError, setEmailError] = useState(false)
+    const [passwordError, setPasswordError] = useState(false)
+
+    const validateEmail = (email) => {
+        const isValid = String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+        if (isValid) {
+            setEmailError(false)
+            setEmail(email)
+        } else {
+            setEmailError(true)
+        }
+        return isValid;
+    };
+
+    function togglePassword() {
+        showPassword === true ? setShowpassword(false) : setShowpassword(true);
+    }
+
     function handleInput() {
-        if (!email || !password) alert("Please enter credentials")
+        const isValid = validateEmail(email);
+
+        if (!isValid) {
+            alert("enter correct email and pass")
+        }
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -25,23 +53,39 @@ const Login = ({ childToParent }) => {
                 setToken(json.token)
             })
 
-            .catch((error) => console.log(error))
+            .catch(() => {
+                setPasswordError(true)
+            })
     }
 
-    // return !token ? (
-    //     <div className="login-form-container">
-    //         <div className="login-form">
-    //             {/* <small className="login-warning">{token ? '' : 'Wrong password!'}</small> */}
-    //             <input className="form-input email" placeholder="Your email?" type="email" autoComplete="on" onChange={e => setEmail(e.target.value)} />
-    //             <input className="form-input password" placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
-    //             <button className="btn" onClick={() => handleInput()} disabled={!email || !password}>Login</button>
-    //             <h5>New to DryRun? <a href="#" onClick={() => childToParent(false)}>Create Account</a></h5>
-    //         </div>
-    //     </div>
-    // ) : 
-    // <Dashboard token={token}/>
+    return !token ? (
+        <div className="login-form-container">
+            <div className="login-form">
 
-    return <Dashboard/>
+                <div className="email-container">
+                    <input type="text" className="form-input email" placeholder="Your email" onChange={e => validateEmail(e.target.value)} />
+                    <small className="email-error error">{emailError ? 'Enter valid email address!' : ''}</small>
+                </div>
+
+                <div className="password-container">
+                    <input type={showPassword ? 'text' : 'password'} className="form-input password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                    <span onClick={togglePassword}>{showPassword ? 'Hide' : 'Show'}</span>
+                    <small className="password-error error">{passwordError ? 'Wrong password' : ''}</small>
+                </div>
+
+                <button className="btn"
+                    onClick={() => handleInput()}
+                    disabled={!email || !password}
+                    style={(!email || !password) ? {cursor: 'not-allowed'} : {cursor: 'pointer'}}
+                >Login</button>
+                <h5>Don't have an Account? <a href="#" onClick={() => childToParent(false)} title="Make a new account">Register Now</a></h5>
+
+            </div>
+        </div>
+    ) :
+        <Dashboard token={token} />
+
+    // return <Dashboard/>
 }
 
 export default Login;
