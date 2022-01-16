@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import Profile from '../Profile/Profile'
-import Dashboard from '../Dashboard/Dashboard'
+import Dashboard from '../Dashboard/Dashboard';
+import Logo from '../../Images/Logo.png'
 import './Login.css'
 
 const URLlogin = 'http://127.0.0.1:8000/accounts/login'
+const logoUrl = '../../../Images/Logo.png'
+
 
 const Login = ({ childToParent }) => {
     const [email, setEmail] = useState('')
@@ -60,7 +62,12 @@ const Login = ({ childToParent }) => {
 
     return !token ? (
         <div className="login-form-container">
+            <div className="logo-container">
+                <img src={Logo} />
+            </div>
+
             <div className="login-form">
+                <h2>Sign In</h2>
 
                 <div className="email-container">
                     <input type="text" className="form-input email" placeholder="Your email" onChange={e => validateEmail(e.target.value)} />
@@ -76,7 +83,7 @@ const Login = ({ childToParent }) => {
                 <button className="btn"
                     onClick={() => handleInput()}
                     disabled={!email || !password}
-                    style={(!email || !password) ? {cursor: 'not-allowed'} : {cursor: 'pointer'}}
+                    style={(!email || !password) ? { cursor: 'not-allowed' } : { cursor: 'pointer' }}
                 >Login</button>
                 <h5>Don't have an Account? <a href="#" onClick={() => childToParent(false)} title="Make a new account">Register Now</a></h5>
 

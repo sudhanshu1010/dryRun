@@ -7,6 +7,17 @@
     align-items: center;
 }
 
+.logo-container {
+    height: 10vh;
+    width: 10vw;
+}
+
+.logo-container > * {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .login-form {
     height: 40vh;
     width: 30vw;
@@ -18,6 +29,12 @@
     backdrop-filter: blur(5px);
     background-color: rgba(255, 255, 255, .6);
     position: relative;
+}
+
+.login-form h2 {
+    font-weight: 500;
+    margin: 0;
+    float: left;
 }
 
 .login-form > div {
