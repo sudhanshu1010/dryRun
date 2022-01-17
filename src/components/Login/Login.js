@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Dashboard from '../Dashboard/Dashboard';
 import Logo from '../../Images/Logo.png'
+import '../Button/Button.css'
 import './Login.css'
+// import {loginResponse} from '../Services/Services'
 
 const URLlogin = 'http://127.0.0.1:8000/accounts/login'
-const logoUrl = '../../../Images/Logo.png'
-
 
 const Login = ({ childToParent }) => {
     const [email, setEmail] = useState('')
@@ -42,11 +42,14 @@ const Login = ({ childToParent }) => {
         if (!isValid) {
             alert("enter correct email and pass")
         }
+
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: email, password: password })
         }
+
+        // loginResponse(email, password)
 
         const res = fetch(URLlogin, requestOptions)
             .then((response) => response.json())
@@ -67,7 +70,7 @@ const Login = ({ childToParent }) => {
             </div>
 
             <div className="login-form">
-                <h2>Sign In</h2>
+                <h2>Sign in</h2>
 
                 <div className="email-container">
                     <input type="text" className="form-input email" placeholder="Your email" onChange={e => validateEmail(e.target.value)} />
@@ -75,7 +78,7 @@ const Login = ({ childToParent }) => {
                 </div>
 
                 <div className="password-container">
-                    <input type={showPassword ? 'text' : 'password'} className="form-input password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                    <input className="form-input password" type={showPassword ? 'text' : 'password'} placeholder="Password" onChange={e => setPassword(e.target.value)} />
                     <span onClick={togglePassword}>{showPassword ? 'Hide' : 'Show'}</span>
                     <small className="password-error error">{passwordError ? 'Wrong password' : ''}</small>
                 </div>

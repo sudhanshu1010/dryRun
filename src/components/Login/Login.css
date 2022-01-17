@@ -32,9 +32,9 @@
 }
 
 .login-form h2 {
-    font-weight: 500;
+    font-weight: 600;
     margin: 0;
-    float: left;
+    font-family: "Helvetica Neue",sans-serif;
 }
 
 .login-form > div {
@@ -87,25 +87,6 @@
     color: red;
     font-size: 1vw;
     top: 5.5vh;
-}
-
-.btn {
-    margin: 2vh 5vw;
-    height: 5vh;
-    width: 6vw;
-    font-size: 1vw;
-    border-radius: 1vh;
-    cursor: pointer;
-    border: none;
-    color: #fff;
-    background: linear-gradient(to left, #797E8B 50%, #686B72 50%) right;
-    background-size: 200%;
-    transition: all .5s ease-out;
-}
-
-.btn:hover {
-    background-color: #555555; 
-    background-position: left;
 }
 
 h5 {

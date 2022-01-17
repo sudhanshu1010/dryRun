@@ -17,6 +17,12 @@
     background-color: rgba(255, 255, 255, .6);
 }
 
+.signup-form h2 {
+    font-weight: 600;
+    margin: 0;
+    font-family: "Helvetica Neue",sans-serif;
+}
+
 .signup-input {
     margin: .5vw;
     outline: none;
@@ -32,24 +38,3 @@
 ::-webkit-input-placeholder {
     color: rgb(109, 107, 107);
 }
-
-.btn {
-    margin: 2vh 5vw;
-    height: 5vh;
-    width: 6vw;
-    font-size: 1vw;
-    border-radius: 1vh;
-    cursor: pointer;
-    border: none;
-    color: #fff;
-    background: linear-gradient(to left, #797E8B 50%, #686B72 50%) right;
-    background-size: 200%;
-    transition: all .5s ease-out;
-}
-
-.btn:hover {
-    background-color: #555555; 
-    background-position: left;
-}
-
-
