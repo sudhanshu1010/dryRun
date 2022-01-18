@@ -11,7 +11,11 @@ const Signup = ({ childToParent }) => {
     const [emailError, setEmailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [userNameError, setUserNameError] = useState(false)
+    const [showPassword, setShowpassword] = useState(false)
 
+    function togglePassword() {
+        showPassword === true ? setShowpassword(false) : setShowpassword(true);
+    }
 
     const validateEmail = (email) => {
         const isValid = String(email)
@@ -58,6 +62,12 @@ const Signup = ({ childToParent }) => {
                     <input className="form-input password" type={showPassword ? 'text' : 'password'} placeholder="Password" onChange={e => setPassword(e.target.value)} />
                     <span onClick={togglePassword}>{showPassword ? 'Hide' : 'Show'}</span>
                     <small className="password-error error">{passwordError ? 'Wrong password' : ''}</small>
+                </div>
+
+                <div className="password-container">
+                    <input className="form-input password" type={showPassword ? 'text' : 'password'} placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                    <span onClick={togglePassword}>{showPassword ? 'Hide' : 'Show'}</span>
+                    <small className="password-error error">{confirmPass ? 'Wrong password' : ''}</small>
                 </div>
 
             </div>
