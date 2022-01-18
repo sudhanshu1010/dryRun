@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Dashboard from '../Dashboard/Dashboard';
 import Logo from '../../Images/Logo.png'
 import '../Button/Button.css'
+
 import './Login.css'
-// import {loginResponse} from '../Services/Services'
 
 const URLlogin = 'http://127.0.0.1:8000/accounts/login'
 
@@ -49,8 +49,6 @@ const Login = ({ childToParent }) => {
             body: JSON.stringify({ email: email, password: password })
         }
 
-        // loginResponse(email, password)
-
         const res = fetch(URLlogin, requestOptions)
             .then((response) => response.json())
             .then(json => {
@@ -72,12 +70,12 @@ const Login = ({ childToParent }) => {
             <div className="login-form">
                 <h2>Sign in</h2>
 
-                <div className="email-container">
+                <div className="login-form-input email-container">
                     <input type="text" className="form-input email" placeholder="Your email" onChange={e => validateEmail(e.target.value)} />
                     <small className="email-error error">{emailError ? 'Enter valid email address!' : ''}</small>
                 </div>
 
-                <div className="password-container">
+                <div className="login-form-input password-container">
                     <input className="form-input password" type={showPassword ? 'text' : 'password'} placeholder="Password" onChange={e => setPassword(e.target.value)} />
                     <span onClick={togglePassword}>{showPassword ? 'Hide' : 'Show'}</span>
                     <small className="password-error error">{passwordError ? 'Wrong password' : ''}</small>

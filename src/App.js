@@ -10,13 +10,13 @@ const App = () => {
     setUser(childData)
   }
 
-  // return user ? (
-  //   <Login childToParent={childToParent} />
-  // ) : (
-  //   <Signup childToParent={childToParent}/>
-  // )
+  return user ? (
+    <Login childToParent={childToParent} />
+  ) : (
+    <Signup childToParent={childToParent}/>
+  )
 
-  return <Signup/>
+  // return <Signup/>
 
 }
 
