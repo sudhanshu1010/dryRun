@@ -3,7 +3,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import Logo from '../../Images/Logo.png'
 import '../Button/Button.css'
 
-import './Login.css'
+import styles from './Login.module.css';
 
 const URLlogin = 'http://127.0.0.1:8000/accounts/login'
 
@@ -21,7 +21,7 @@ const Login = ({ childToParent }) => {
         const isValid = String(email)
             .toLowerCase()
             .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0_9]{1,3}\.[0_9]{1,3}\.[0_9]{1,3}\.[0_9]{1,3}\])|(([a_zA_Z\_0_9]+\.)+[a_zA_Z]{2,}))$/
             );
         if (isValid) {
             setEmailError(false)
@@ -45,7 +45,7 @@ const Login = ({ childToParent }) => {
 
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content_Type': 'application/json' },
             body: JSON.stringify({ email: email, password: password })
         }
 
@@ -62,29 +62,37 @@ const Login = ({ childToParent }) => {
     }
 
     return !token ? (
-        <div className="login-form-container">
-            <div className="logo-container">
+        <div className={styles.login_form_container}>
+            <div className={styles.logo_container}>
                 <img src={Logo} />
             </div>
 
-            <div className="login-form">
+            <div className={styles.login_form}>
                 <h2>Sign in</h2>
 
-                <div className="login-form-input email-container">
-                    <input type="text" className="form-input email" placeholder="Your email" onChange={e => validateEmail(e.target.value)} />
-                    <small className="email-error error">{emailError ? 'Enter valid email address!' : ''}</small>
+                <div className={styles.login_form_input}>
+                    <input type="text"
+                        className={styles.form_input}
+                        placeholder="Your email"
+                        onChange={e => validateEmail(e.target.value)}
+                    />
+                    <small className={styles.email_error, styles.error}>{emailError ? 'Enter valid email address!' : ''}</small>
                 </div>
 
-                <div className="login-form-input password-container">
-                    <input className="form-input password" type={showPassword ? 'text' : 'password'} placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                <div className={ styles.password_container, styles.login_form_input}>
+                    <input className={styles.form_input}
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="Password"
+                        onChange={e => setPassword(e.target.value)}
+                    />
                     <span onClick={togglePassword}>{showPassword ? 'Hide' : 'Show'}</span>
-                    <small className="password-error error">{passwordError ? 'Wrong password' : ''}</small>
+                    <small className={styles.password_error, styles.error}>{passwordError ? 'Wrong password' : ''}</small>
                 </div>
 
                 <button className="btn"
                     onClick={() => handleInput()}
                     disabled={!email || !password}
-                    style={(!email || !password) ? { cursor: 'not-allowed' } : { cursor: 'pointer' }}
+                    style={(!email || !password) ? { cursor: 'not_allowed' } : { cursor: 'pointer' }}
                 >Login</button>
                 <h5>Don't have an Account? <a href="#" onClick={() => childToParent(false)} title="Make a new account">Register Now</a></h5>
 

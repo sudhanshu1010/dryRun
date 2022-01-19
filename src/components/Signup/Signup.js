@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import '../../components/Button/Button.css'
-import './Signup.css';
+// import './Signup.css';
+import styles from './Signup.module.css'
 
 const Signup = ({ childToParent }) => {
     const [email, setEmail] = useState('');
@@ -21,7 +22,7 @@ const Signup = ({ childToParent }) => {
         const isValid = String(email)
             .toLowerCase()
             .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0_9]{1,3}\.[0_9]{1,3}\.[0_9]{1,3}\.[0_9]{1,3}\])|(([a_zA_Z\_0_9]+\.)+[a_zA_Z]{2,}))$/
             );
         console.log(isValid)
         return isValid;
@@ -33,35 +34,40 @@ const Signup = ({ childToParent }) => {
             alert("both password are same", confirmPass)
         } else {
             alert("Confirm the password again")
-            const field = document.querySelector('.confirm-password')
+            const field = document.querySelector('.confirm_password')
             field.value = ""
         }
     }
     return (
-        <div className="signup-container">
-            <div className="signup-form">
+        <div className={styles.signup_container}>
+            <div className={styles.signup_form}>
                 <h2>Sign up</h2>
 
-                <div className="email-container">
-                    <input type="text" className="form-input email" placeholder="Your email" onChange={e => validateEmail(e.target.value)} />
-                    <small className="email-error error">{emailError ? 'Enter valid email address!' : ''}</small>
+                <div className={styles.email_container}>
+                    <input type="text" className={styles.form_input} placeholder="Your email" onChange={e => validateEmail(e.target.value)} />
+                    <small className={styles.email_error, styles.error}>{emailError ? 'Enter valid email address!' : ''}</small>
                 </div>
 
-                <div className="username-container">
-                    <input type="text" className="form-input" placeholder="Username" />
-                    <small className="username-error error">{userNameError ? 'Username already taken' : ''}</small>
+                <div className={styles.username_container}>
+                    <input type="text" className={styles.form_input} placeholder="Username" />
+                    <small className={styles.username_error, styles.error}>{userNameError ? 'Username already taken' : ''}</small>
                 </div>
 
-                <div className="password-container">
-                    <input className="form-input password" type={showPassword ? 'text' : 'password'} placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                <div className={styles.password_container}>
+                    <input className={styles.form_input} type={showPassword ? 'text' : 'password'} placeholder="Password" onChange={e => setPassword(e.target.value)} />
                     <span onClick={togglePassword}>{showPassword ? 'Hide' : 'Show'}</span>
-                    <small className="password-error error">{passwordError ? 'Wrong password' : ''}</small>
+                    <small className={styles.password_error, styles.error}>{passwordError ? 'Wrong password' : ''}</small>
                 </div>
 
-                <div className="password-container">
-                    <input className="form-input password" type={showPassword ? 'text' : 'password'} placeholder="Password" onChange={e => setPassword(e.target.value)} />
-                    <small className="password-error error">{confirmPass ? 'Wrong password' : ''}</small>
+                <div className={styles.password_container}>
+                    <input className={styles.form_input} type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                    <small className={styles.password_error, styles.error}>{confirmPass ? 'Wrong password' : ''}</small>
                 </div>
+                <button className="btn"
+                    onClick={() => handleInput()}
+                    disabled={!email || !password}
+                    style={(!email || !password) ? { cursor: 'not_allowed' } : { cursor: 'pointer' }}
+                >Register</button>
 
                 <h5>Already have an account? <a href="#" onClick={() => childToParent(true)}>Login</a></h5>
 
