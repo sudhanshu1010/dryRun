@@ -23,6 +23,7 @@ const Login = ({ childToParent }) => {
             .match(
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0_9]{1,3}\.[0_9]{1,3}\.[0_9]{1,3}\.[0_9]{1,3}\])|(([a_zA_Z\_0_9]+\.)+[a_zA_Z]{2,}))$/
             );
+
         if (isValid) {
             setEmailError(false)
             setEmail(email)
