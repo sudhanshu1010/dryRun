@@ -1,12 +1,14 @@
 .signup_container {
     height: 100vh;
     width: 100vw;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .signup_form {
-    height: 55vh;
+    height: 65vh;
     width: 30vw;
     display: flex;
     flex-direction: column;
@@ -17,16 +19,27 @@
     background-color: rgba(255, 255, 255, .6);
 }
 
+.logo_container {
+    height: 10vh;
+    width: 10vw;
+}
+
+.logo_container > * {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .signup_form h2 {
     font-weight: 600;
-    margin: 0;
+    margin: 0 0 1vh 0;
     font-family: "Helvetica Neue",sans-serif;
 }
 
 .signup_form > div {
     height: 5vh;
     width: 75%;
-    margin-top: 2vh;
+    margin: .5vw 0 1.5vw 0;
     display: flex;
     flex-direction: column;
     align-items: center;

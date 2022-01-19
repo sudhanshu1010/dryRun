@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import '../../components/Button/Button.css'
-// import './Signup.css';
+import Logo from '../../Images/Logo.png'
 import styles from './Signup.module.css'
 
 const Signup = ({ childToParent }) => {
@@ -28,6 +28,8 @@ const Signup = ({ childToParent }) => {
         return isValid;
     };
 
+    
+
     function handleInput() {
         console.log(email, username, password, confirmPass)
         if (password !== null && password === confirmPass) {
@@ -40,6 +42,9 @@ const Signup = ({ childToParent }) => {
     }
     return (
         <div className={styles.signup_container}>
+            <div className={styles.logo_container}>
+                <img src={Logo} />
+            </div>
             <div className={styles.signup_form}>
                 <h2>Sign up</h2>
 

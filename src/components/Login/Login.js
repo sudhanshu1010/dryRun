@@ -79,7 +79,7 @@ const Login = ({ childToParent }) => {
                     <small className={styles.email_error, styles.error}>{emailError ? 'Enter valid email address!' : ''}</small>
                 </div>
 
-                <div className={ styles.password_container, styles.login_form_input}>
+                <div className={styles.password_container, styles.login_form_input}>
                     <input className={styles.form_input}
                         type={showPassword ? 'text' : 'password'}
                         placeholder="Password"
