@@ -37,6 +37,7 @@ const Login = ({ childToParent }) => {
     }
 
     function handleInput() {
+        alert("Hi")
         const isValid = validateEmail(email);
 
         if (!isValid) {
@@ -73,7 +74,7 @@ const Login = ({ childToParent }) => {
                 <div className={styles.login_form_input}>
                     <input type="text"
                         className={styles.form_input}
-                        placeholder="Your email"
+                        placeholder="Your email..."
                         onChange={e => validateEmail(e.target.value)}
                     />
                     <small className={styles.email_error, styles.error}>{emailError ? 'Enter valid email address!' : ''}</small>
@@ -82,7 +83,7 @@ const Login = ({ childToParent }) => {
                 <div className={styles.password_container, styles.login_form_input}>
                     <input className={styles.form_input}
                         type={showPassword ? 'text' : 'password'}
-                        placeholder="Password"
+                        placeholder="Password..."
                         onChange={e => setPassword(e.target.value)}
                     />
                     <span onClick={togglePassword}>{showPassword ? 'Hide' : 'Show'}</span>

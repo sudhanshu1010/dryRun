@@ -49,23 +49,23 @@ const Signup = ({ childToParent }) => {
                 <h2>Sign up</h2>
 
                 <div className={styles.email_container}>
-                    <input type="text" className={styles.form_input} placeholder="Your email" onChange={e => validateEmail(e.target.value)} />
+                    <input type="text" className={styles.form_input} placeholder="Your email..." onChange={e => validateEmail(e.target.value)} />
                     <small className={styles.email_error, styles.error}>{emailError ? 'Enter valid email address!' : ''}</small>
                 </div>
 
                 <div className={styles.username_container}>
-                    <input type="text" className={styles.form_input} placeholder="Username" />
+                    <input type="text" className={styles.form_input} placeholder="Username..." />
                     <small className={styles.username_error, styles.error}>{userNameError ? 'Username already taken' : ''}</small>
                 </div>
 
                 <div className={styles.password_container}>
-                    <input className={styles.form_input} type={showPassword ? 'text' : 'password'} placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                    <input className={styles.form_input} type={showPassword ? 'text' : 'password'} placeholder="Password..." onChange={e => setPassword(e.target.value)} />
                     <span onClick={togglePassword}>{showPassword ? 'Hide' : 'Show'}</span>
                     <small className={styles.password_error, styles.error}>{passwordError ? 'Wrong password' : ''}</small>
                 </div>
 
                 <div className={styles.password_container}>
-                    <input className={styles.form_input} type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                    <input className={styles.form_input} type="password" placeholder="Confirm password..." onChange={e => setPassword(e.target.value)} />
                     <small className={styles.password_error, styles.error}>{confirmPass ? 'Wrong password' : ''}</small>
                 </div>
                 <button className="btn"
