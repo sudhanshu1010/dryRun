@@ -23,13 +23,11 @@ const Signup = ({ childToParent }) => {
         const isValid = String(email)
             .toLowerCase()
             .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0_9]{1,3}\.[0_9]{1,3}\.[0_9]{1,3}\.[0_9]{1,3}\])|(([a_zA_Z\_0_9]+\.)+[a_zA_Z]{2,}))$/
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             );
         console.log(isValid)
         return isValid;
     };
-
-    
 
     function handleInput() {
         console.log(email, username, password, confirmPass)
@@ -41,6 +39,14 @@ const Signup = ({ childToParent }) => {
             field.value = ""
         }
     }
+
+    const isDisabledButtonTrue = {
+        background: 'rgb(163, 163, 163)',
+        cursor: 'not-allowed'
+    }
+
+    const isDisabledButtonFalse = {}
+
     return (
         <div className={styles.signup_container}>
             <div className={styles.logo_container}>
@@ -72,7 +78,7 @@ const Signup = ({ childToParent }) => {
                 <button className={buttonCSS.btn}
                     onClick={() => handleInput()}
                     disabled={!email || !password}
-                    style={(!email || !password) ? { cursor: 'not_allowed' } : { cursor: 'pointer' }}
+                    style={(!email || !password) ? isDisabledButtonTrue : isDisabledButtonFalse} 
                 >Register</button>
 
                 <h5>Already have an account? <a href="#" onClick={() => childToParent(true)}>Login</a></h5>

@@ -48,7 +48,10 @@ const Login = ({ childToParent }) => {
 
         const requestOptions = {
             method: 'POST',
-            // headers: { 'Content_Type': 'application/json' },
+            headers: {
+                'Content_Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            },
             body: JSON.stringify({ email: email, password: password })
         }
 
@@ -63,6 +66,13 @@ const Login = ({ childToParent }) => {
                 setPasswordError(true)
             })
     }
+
+    const isDisabledButtonTrue = {
+        background: 'rgb(163, 163, 163)',
+        cursor: 'not-allowed'
+    }
+
+    const isDisabledButtonFalse = {}
 
     return !token ? (
         <div className={styles.login_form_container}>
@@ -89,13 +99,14 @@ const Login = ({ childToParent }) => {
                         onChange={e => setPassword(e.target.value)}
                     />
                     <span onClick={togglePassword}>{showPassword ? 'Hide' : 'Show'}</span>
-                    <small className={styles.password_error, styles.error}>{passwordError ? 'Wrong password' : ''}</small>
+                    <small className={styles.password_error, styles.error}>{passwordError ? 'Wrong password!' : ''}</small>
                 </div>
 
                 <button className={buttonCSS.btn}
                     onClick={() => handleInput()}
                     disabled={!email || !password}
-                    style={(!email || !password) ? { cursor: 'not-allowed' } : { cursor: 'pointer' }}
+                    // style={(!email || !password) ? { cursor: 'not-allowed' } : { cursor: 'pointer' }}
+                    style={(!email || !password) ? isDisabledButtonTrue : isDisabledButtonFalse}
                 >Login</button>
                 <h5>Don't have an Account? <a href="#" onClick={() => childToParent(false)} title="Make a new account">Register Now</a></h5>
 
