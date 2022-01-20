@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Dashboard from '../Dashboard/Dashboard';
 import Logo from '../../Images/Logo.png'
-import '../Button/Button.css'
+import buttonCSS from '../Button/Button.module.css'
 
 import styles from './Login.module.css';
 
@@ -21,15 +21,17 @@ const Login = ({ childToParent }) => {
         const isValid = String(email)
             .toLowerCase()
             .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0_9]{1,3}\.[0_9]{1,3}\.[0_9]{1,3}\.[0_9]{1,3}\])|(([a_zA_Z\_0_9]+\.)+[a_zA_Z]{2,}))$/
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             );
 
         if (isValid) {
             setEmailError(false)
             setEmail(email)
+
         } else {
             setEmailError(true)
         }
+
         return isValid;
     };
 
@@ -38,7 +40,6 @@ const Login = ({ childToParent }) => {
     }
 
     function handleInput() {
-        alert("Hi")
         const isValid = validateEmail(email);
 
         if (!isValid) {
@@ -47,7 +48,7 @@ const Login = ({ childToParent }) => {
 
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content_Type': 'application/json' },
+            // headers: { 'Content_Type': 'application/json' },
             body: JSON.stringify({ email: email, password: password })
         }
 
@@ -91,10 +92,10 @@ const Login = ({ childToParent }) => {
                     <small className={styles.password_error, styles.error}>{passwordError ? 'Wrong password' : ''}</small>
                 </div>
 
-                <button className="btn"
+                <button className={buttonCSS.btn}
                     onClick={() => handleInput()}
                     disabled={!email || !password}
-                    style={(!email || !password) ? { cursor: 'not_allowed' } : { cursor: 'pointer' }}
+                    style={(!email || !password) ? { cursor: 'not-allowed' } : { cursor: 'pointer' }}
                 >Login</button>
                 <h5>Don't have an Account? <a href="#" onClick={() => childToParent(false)} title="Make a new account">Register Now</a></h5>
 

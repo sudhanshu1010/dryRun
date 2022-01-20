@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import '../../components/Button/Button.css'
 import Logo from '../../Images/Logo.png'
+
+import buttonCSS from '../../components/Button/Button.module.css'
 import styles from './Signup.module.css'
 
 const Signup = ({ childToParent }) => {
@@ -68,7 +69,7 @@ const Signup = ({ childToParent }) => {
                     <input className={styles.form_input} type="password" placeholder="Confirm password..." onChange={e => setPassword(e.target.value)} />
                     <small className={styles.password_error, styles.error}>{confirmPass ? 'Wrong password' : ''}</small>
                 </div>
-                <button className="btn"
+                <button className={buttonCSS.btn}
                     onClick={() => handleInput()}
                     disabled={!email || !password}
                     style={(!email || !password) ? { cursor: 'not_allowed' } : { cursor: 'pointer' }}
