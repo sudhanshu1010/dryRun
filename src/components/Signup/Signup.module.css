@@ -47,6 +47,14 @@
     position: relative;
 }
 
+.signup_form small {
+    position: absolute;
+    left: .5vw;
+    color: red;
+    font-size: 1vw;
+    top: 5.5vh;
+}
+
 .password_container {
     position: relative;
 }
