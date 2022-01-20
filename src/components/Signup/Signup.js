@@ -39,7 +39,9 @@ const Signup = ({ childToParent }) => {
     };
 
     function checkPassword(data){
-        return 
+        if(data === password) {
+            checkConfirmPass(false)
+        } else checkConfirmPass(true);
     }
 
 
@@ -82,7 +84,7 @@ const Signup = ({ childToParent }) => {
                     <input type="text"
                         className={styles.form_input}
                         placeholder="Username..."
-                        onchange={e => setUsername(e.target.value)}
+                        onChange={e => setUsername(e.target.value)}
                     />
                     <small className={styles.username_error, styles.error}>{userNameError ? 'Username already taken!' : ''}</small>
                 </div>
@@ -108,8 +110,8 @@ const Signup = ({ childToParent }) => {
 
                 <button className={buttonCSS.btn}
                     onClick={() => handleInput()}
-                    disabled={!email || !password}
-                    style={(!email || !password || !username) ? isDisabledButtonTrue : isDisabledButtonFalse}
+                    disabled={!email || !password || !username || confirmPass}
+                    style={(!email || !password || confirmPass) ? isDisabledButtonTrue : isDisabledButtonFalse}
                 >Register</button>
 
                 <h5>Already have an account? <a href="#" onClick={() => childToParent(true)}>Login</a></h5>

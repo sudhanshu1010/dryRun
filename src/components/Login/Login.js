@@ -48,9 +48,10 @@ const Login = ({ childToParent }) => {
 
         const requestOptions = {
             method: 'POST',
-            headers: {
-                'Content_Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+            headers: {    
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://127.0.0.1:8000/accounts/login' 
             },
             body: JSON.stringify({ email: email, password: password })
         }
