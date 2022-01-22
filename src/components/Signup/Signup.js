@@ -113,8 +113,6 @@ const Signup = ({ childToParent }) => {
                 >Register</button>
 
                 <h5>Already have an account? <a href="#" onClick={() => childToParent(true)}>Login</a></h5>
-
-
             </div>
         </div>
     )

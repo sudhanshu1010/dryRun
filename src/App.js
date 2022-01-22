@@ -15,9 +15,7 @@ const App = () => {
   ) : (
     <Signup childToParent={childToParent}/>
   )
-
   // return <Signup/>
-
 }
 
 export default App;
