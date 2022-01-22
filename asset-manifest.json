@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/dryRun/static/css/main.61e9e14c.css",
+    "main.js": "/dryRun/static/js/main.07049d69.js",
+    "static/media/Logo.png": "/dryRun/static/media/Logo.7b2b9e9f43349a89b0c1.png",
+    "index.html": "/dryRun/index.html",
+    "main.61e9e14c.css.map": "/dryRun/static/css/main.61e9e14c.css.map",
+    "main.07049d69.js.map": "/dryRun/static/js/main.07049d69.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.61e9e14c.css",
+    "static/js/main.07049d69.js"
+  ]
+}
