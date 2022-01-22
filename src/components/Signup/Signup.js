@@ -34,8 +34,6 @@ const Signup = ({ childToParent }) => {
             } else if(!isValid) {
                 setEmailError(true)
             }
-    
-            // return isValid;
     };
 
     function checkPassword(data){
