@@ -47,6 +47,11 @@
     position: relative;
 }
 
+.form_input:focus {
+    border: 2px solid #3e64ff;
+    transition: all .2s ease-in-out;
+}
+
 .signup_form small {
     position: absolute;
     left: .5vw;

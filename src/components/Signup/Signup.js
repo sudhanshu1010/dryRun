@@ -9,12 +9,8 @@ const Signup = ({ childToParent }) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const [confirmPass, checkConfirmPass] = useState(false)
-    
+    const [wrongPassword, setWrongPassword] = useState(true)
     const [emailError, setEmailError] = useState(false)
-    const [passwordError, setPasswordError] = useState(false)
-    const [userNameError, setUserNameError] = useState(false)
-    
     const [showPassword, setShowpassword] = useState(false)
 
     function togglePassword() {
@@ -27,31 +23,24 @@ const Signup = ({ childToParent }) => {
             .match(
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             );
-            if (isValid) {
-                setEmailError(false)
-                setEmail(email)
-    
-            } else if(!isValid) {
-                setEmailError(true)
-            }
+        if (isValid) {
+            setEmailError(false)
+            setEmail(email)
+
+        } else if (!isValid) {
+            setEmailError(true)
+        }
     };
 
-    function checkPassword(data){
-        if(data === password) {
-            checkConfirmPass(false)
-        } else checkConfirmPass(true);
+    function checkPassword(data) {
+        if(password !== data){
+            setWrongPassword(false)
+        } else setWrongPassword(true)
     }
 
 
     function handleInput() {
-        console.log(email, username, password, confirmPass)
-        if (password !== null && password === confirmPass) {
-            alert("both password are same", confirmPass)
-        } else {
-            alert("Confirm the password again")
-            const field = document.querySelector('.confirm_password')
-            field.value = ""
-        }
+
     }
 
     const isDisabledButtonTrue = {
@@ -84,7 +73,6 @@ const Signup = ({ childToParent }) => {
                         placeholder="Username..."
                         onChange={e => setUsername(e.target.value)}
                     />
-                    <small className={styles.username_error, styles.error}>{userNameError ? 'Username already taken!' : ''}</small>
                 </div>
 
                 <div className={styles.password_container}>
@@ -94,7 +82,6 @@ const Signup = ({ childToParent }) => {
                         onChange={e => setPassword(e.target.value)}
                     />
                     <span onClick={togglePassword}>{showPassword ? 'Hide' : 'Show'}</span>
-                    {/* <small className={styles.password_error, styles.error}>{passwordError ? 'Wrong password' : ''}</small> */}
                 </div>
 
                 <div className={styles.password_container}>
@@ -103,13 +90,13 @@ const Signup = ({ childToParent }) => {
                         placeholder="Confirm password..."
                         onChange={e => checkPassword(e.target.value)}
                     />
-                    <small className={styles.password_error, styles.error}>{confirmPass ? "Password doesn't match" : ''}</small>
+                    <small className={styles.password_error, styles.error}>{wrongPassword ? '' : "Password doesn't match"}</small>
                 </div>
 
                 <button className={buttonCSS.btn}
                     onClick={() => handleInput()}
-                    disabled={!email || !password || !username || confirmPass}
-                    style={(!email || !password || confirmPass) ? isDisabledButtonTrue : isDisabledButtonFalse}
+                    // disabled={!email || !password || !username || confirmPass}
+                    style={(!email) ? isDisabledButtonTrue : isDisabledButtonFalse}
                 >Register</button>
 
                 <h5>Already have an account? <a href="#" onClick={() => childToParent(true)}>Login</a></h5>
