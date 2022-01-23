@@ -1,10 +1,10 @@
 import React from 'react';
-import './Dashboard.css'
+import styles from './Dashboard.module.css'
 import Navbar from './Navbar'
 
 const Dashboard = () => {
     return (
-        <div className="dashboard-container">
+        <div className={styles.dashboard_container}>
             <Navbar/>
         </div>
     )

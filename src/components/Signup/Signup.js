@@ -34,13 +34,17 @@ const Signup = ({ childToParent }) => {
 
     function checkPassword(data) {
         if(password !== data){
+            console.log(wrongPassword)
             setWrongPassword(false)
         } else setWrongPassword(true)
     }
 
 
     function handleInput() {
-
+        console.log(email, !email)
+        console.log(username, !username)
+        console.log(password, !password)
+        console.log(wrongPassword, !wrongPassword)
     }
 
     const isDisabledButtonTrue = {
@@ -90,13 +94,13 @@ const Signup = ({ childToParent }) => {
                         placeholder="Confirm password..."
                         onChange={e => checkPassword(e.target.value)}
                     />
-                    <small className={styles.password_error, styles.error}>{wrongPassword ? '' : "Password doesn't match"}</small>
+                    <small className={styles.error}>{wrongPassword ? '' : "Password doesn't match"}</small>
                 </div>
 
                 <button className={buttonCSS.btn}
                     onClick={() => handleInput()}
                     // disabled={!email || !password || !username || confirmPass}
-                    style={(!email) ? isDisabledButtonTrue : isDisabledButtonFalse}
+                    style={(email && username && password && wrongPassword) ? isDisabledButtonTrue : isDisabledButtonFalse  }
                 >Register</button>
 
                 <h5>Already have an account? <a href="#" onClick={() => childToParent(true)}>Login</a></h5>
