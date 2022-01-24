@@ -9,8 +9,23 @@
     width: 100vw;
 }
 
-.profile_container {
+.dashboard_content_container {
     height: 94vh;
     width: 100vw;
-    background-color: #000;
+    display: flex;
+}
+
+.dashboard_left_container {
+    height: 100%;
+    width:70vw;
+    background-color: blue;
+}
+
+.dashboard_right_container {
+    height: 100%;
+    width: 30vw;
+    background-color:green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

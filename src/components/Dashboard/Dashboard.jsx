@@ -13,10 +13,12 @@ const Dashboard = () => {
             setProblem(true)
             setProfile(false)
             setExplore(false)
+
         } else if(numberCount == 2){
             setExplore(true)
             setProfile(false)
             setProblem(false)
+            
         } else {
             setProfile(true)
             setProblem(false)
@@ -24,13 +26,15 @@ const Dashboard = () => {
         }
     }
 
-
     return (
         <div className={styles.dashboard_container}>
             <Navbar getButtonClicked={getButtonClicked} className={styles.navbar_container} />
-            {profile ? <Profile className={styles.profile_container}/> : ''}
-            {explore ? 'This is explore section' : ''}
-            {problem ? 'this is problem section' : ''}
+            <div className={styles.dashboard_content_container}>
+                <div className={styles.dashboard_left_container}></div>
+                <div className={styles.dashboard_right_container}>
+                    <Profile className={styles.profile_container}/>
+                </div>
+            </div>
         </div>
     )
 }
