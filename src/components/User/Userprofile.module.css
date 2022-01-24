@@ -1,6 +1,38 @@
 .userprofile_main_container {
-    height: 80vh;
-    width: 20vw;
+    height: 90%;
+    width: 27vw;
     background-color: #fff;
-    border-radius: 3vh;
+    border-radius: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 2.5vh;
+}
+
+.userprofile_main_container:hover {
+    transition: all .2s ease-in-out;
+    box-shadow: 0 0 10px 1px lightgrey;
+}
+
+.userprofile_image_container {
+    height: 20vh;
+    width: 20vh;
+    display: flex;
+    border-radius: 50%;
+    border: 1px solid #123;
+    object-fit: contain;
+    overflow: clip;
+}
+
+.userprofile_image_container img {
+    width: auto;
+    height: 100%;
+}
+
+.userprofile_about_container p {
+    text-align: justify;
+    color: rgb(163, 162, 162);
+    margin: 0;
 }

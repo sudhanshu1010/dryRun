@@ -29,12 +29,18 @@ const Dashboard = () => {
     return (
         <div className={styles.dashboard_container}>
             <Navbar getButtonClicked={getButtonClicked} className={styles.navbar_container} />
-            <div className={styles.dashboard_content_container}>
-                <div className={styles.dashboard_left_container}></div>
+            {
+                profile ? <div className={styles.dashboard_content_container}>
+                <div className={styles.dashboard_left_container}>
+                    <div className={styles.dashboard_questions}></div>
+                    <div className={styles.dashboard_yearlydata}></div>
+                    <div className={styles.dashboard_recent_submissions}></div>
+                </div>
                 <div className={styles.dashboard_right_container}>
                     <Profile className={styles.profile_container}/>
                 </div>
-            </div>
+            </div>: 'General Section'
+            }
         </div>
     )
 }
