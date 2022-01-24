@@ -3,3 +3,14 @@
     width: 100vw;
     background-color: #F3F1FD;
 }
+
+.navbar_container {
+    height: 6vh;
+    width: 100vw;
+}
+
+.profile_container {
+    height: 94vh;
+    width: 100vw;
+    background-color: #000;
+}

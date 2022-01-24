@@ -1,25 +1,36 @@
-import React from 'react';
-import styles from './Dashboard.module.css'
+import React, { useState } from 'react';
 import Navbar from './Navbar'
+import Profile from '../Profile/Profile'
+import styles from './Dashboard.module.css'
 
 const Dashboard = () => {
     const [problem, setProblem] = useState(false)
     const [explore, setExplore] = useState(false)
     const [profile, setProfile] = useState(false)
 
-    const getProperties = ({problem, explore, profile }) => {
-        setProblem(problem)
-        setExplore(explore)
-        setProfile(profile)
+    const getButtonClicked = (numberCount) => {
+        if(numberCount == 1){
+            setProblem(true)
+            setProfile(false)
+            setExplore(false)
+        } else if(numberCount == 2){
+            setExplore(true)
+            setProfile(false)
+            setProblem(false)
+        } else {
+            setProfile(true)
+            setProblem(false)
+            setExplore(false)
+        }
     }
 
-    function myFunction(){
-        console.log(problem, explore, profile)
-    }
+
     return (
         <div className={styles.dashboard_container}>
-            <Navbar getProperties={problem, explore, profile}/>
-            <button onClick={myFunction}>Click here</button>
+            <Navbar getButtonClicked={getButtonClicked} className={styles.navbar_container} />
+            {profile ? <Profile className={styles.profile_container}/> : ''}
+            {explore ? 'This is explore section' : ''}
+            {problem ? 'this is problem section' : ''}
         </div>
     )
 }
