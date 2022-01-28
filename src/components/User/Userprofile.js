@@ -14,6 +14,7 @@ const Userprofile = () => {
                 <p>Looking forward to the opportunities in immigration and consulting firms.
                     Ready to serve as IELTS Trainer with utmost confidence and required set of skills.</p>
             </div>
+            <div className={styles.userprofile_details_container}></div>
 
         </div>
     )

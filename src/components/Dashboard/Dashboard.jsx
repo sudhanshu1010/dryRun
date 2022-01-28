@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './Navbar'
 import Profile from '../Profile/Profile'
 import styles from './Dashboard.module.css'
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 const Dashboard = () => {
     const [problem, setProblem] = useState(false)
@@ -9,16 +10,16 @@ const Dashboard = () => {
     const [profile, setProfile] = useState(false)
 
     const getButtonClicked = (numberCount) => {
-        if(numberCount == 1){
+        if (numberCount == 1) {
             setProblem(true)
             setProfile(false)
             setExplore(false)
 
-        } else if(numberCount == 2){
+        } else if (numberCount == 2) {
             setExplore(true)
             setProfile(false)
             setProblem(false)
-            
+
         } else {
             setProfile(true)
             setProblem(false)
@@ -30,16 +31,18 @@ const Dashboard = () => {
         <div className={styles.dashboard_container}>
             <Navbar getButtonClicked={getButtonClicked} className={styles.navbar_container} />
             {
-                profile ? <div className={styles.dashboard_content_container}>
-                <div className={styles.dashboard_left_container}>
-                    <div className={styles.dashboard_questions}></div>
-                    <div className={styles.dashboard_yearlydata}></div>
-                    <div className={styles.dashboard_recent_submissions}></div>
-                </div>
-                <div className={styles.dashboard_right_container}>
-                    <Profile className={styles.profile_container}/>
-                </div>
-            </div>: 'General Section'
+                !profile ? <div className={styles.dashboard_content_container}>
+                    <PerfectScrollbar>
+                        <div className={styles.dashboard_left_container}>
+                            <div className={styles.dashboard_questions}></div>
+                            <div className={styles.dashboard_yearlydata}></div>
+                            <div className={styles.dashboard_recent_submissions}></div>
+                        </div>
+                    </PerfectScrollbar>
+                    <div className={styles.dashboard_right_container}>
+                        <Profile className={styles.profile_container} />
+                    </div>
+                </div> : 'General Section'
             }
         </div>
     )

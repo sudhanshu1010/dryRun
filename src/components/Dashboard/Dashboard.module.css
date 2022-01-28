@@ -1,5 +1,5 @@
 .dashboard_container {
-    /* height: 100vh; */
+    height: 100vh;
     width: 100vw;
     background-color: #F3F1FD;
 }
@@ -16,7 +16,6 @@
 }
 
 .dashboard_left_container {
-    height: 100%;
     width: 70vw;
     display: flex;
     align-items: center;
@@ -53,5 +52,5 @@
 }
 
 .dashboard_recent_submissions {
-    height: 50vh;
+    height: 100vh;
 }
